@@ -33,7 +33,7 @@ fetch(api)
 
             productColors.appendChild(colorsOptions);
             colorsOptions.setAttribute("value", productData.colors[option]);
-            colorsOptions.textContent = `${productData.colors[option]}`;
+            colorsOptions.textContent = `${productData.colors[option]}`;//quentin : pas besoin d'interpoler la string non ?
 
 
         }
@@ -44,15 +44,18 @@ fetch(api)
 
         addCartBtn.addEventListener("click", () => {
             
+            //Quentin : que se passse t'il si je ne sélectionne pas de couleur ?
+            //Quentin : que se passse t'il si je ne sélectionne pas de quantité ?
+
             let createCart = {
                 id: productData._id,
-                color: colorsOptions.value,
+                color: colorsOptions.value, 
                 quantity: Number(productQuantity.value)
             }
 
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            
-            cart.push(createCart)
+            //quentin : tu fais donc confiance que le getItem te renvoie bien un tableau ?
+            cart.push(createCart) //Quentin : si je clique plusieurs fois sur le bouton, qu'est-ce qui se passe ?
 
            
 

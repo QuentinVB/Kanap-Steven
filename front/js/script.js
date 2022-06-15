@@ -14,11 +14,11 @@ fetch(api)
             const productTitle = document.createElement("h3");
             const productDesc = document.createElement("p");
 
-            items.appendChild(productLink).appendChild(article);
+            items.appendChild(productLink).appendChild(article);//Quentin : joli :) 
 
-            article.append(productImg, productTitle, productDesc);
+            article.append(productImg, productTitle, productDesc);//Quentin : js peut faire ça mais c'est risqué d'assigner avant d'avoir fini de setter les attributs
 
-            productLink.href = "../html/product.html?id=" + product._id;
+            productLink.href = "../html/product.html?id=" + product._id; //Quentin : suggestion : chaine interpolée ? `foo {product._id}`;
             productImg.src = product.imageUrl;
             productImg.alt = product.altTxt;
             productTitle.setAttribute("class", "productName");

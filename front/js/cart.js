@@ -2,7 +2,7 @@
 const productInCart = JSON.parse(localStorage.getItem("cart"));
 
 
-if (productInCart) {
+if (productInCart) { //Quentin : bien le guard :) 
 
   productInCart.forEach(dataCart => {
 
@@ -51,7 +51,7 @@ if (productInCart) {
         productItemDescription.append(productTitle, productColor, productPrice);
         productTitle.textContent = product.name
         productColor.textContent = dataCart.color
-        productPrice.textContent = product.price * dataCart.quantity + "€";
+        productPrice.textContent = product.price * dataCart.quantity + "€"; 
         
 
         productItemSettings.className = "cart__item__content__settings";
@@ -77,8 +77,8 @@ if (productInCart) {
         for (let i = 0; i < productInCart.length; i++) {
           productDelete.addEventListener("click", (event) => {
             console.log(productInCart.length)
-            if (dataCart.id == dataCart.id && dataCart.color == dataCart.color) {
-              productCart.removeChild(productCartArticle);
+            if (dataCart.id == dataCart.id && dataCart.color == dataCart.color) { //Quentin : c'est un peu redondant non ? Et ça pète des erreurs consoles
+              productCart.removeChild(productCartArticle); 
               productInCart.splice(i, 1);
             }
             localStorage.setItem('cart', JSON.stringify(productInCart));
@@ -98,9 +98,10 @@ if (productInCart) {
 
 
         let priceTotal = 0
-        for (let i = 0; i < productInCart.length; i += 1) {
-          priceTotal += product.price * dataCart.quantity
-          totalPrice.textContent = priceTotal;
+        for (let i = 0; i < productInCart.length; i += 1) { //Quentin : i+=1 peut se simplifier avec i++
+          priceTotal += product.price * dataCart.quantity //Quentin : ha il y a un piège ici, on en parle demain ;) 
+          //indice : le javascript à un typage 'dynamique', c'est à dire que le moteur du javascript "décide tout seul comme un grand" le type des entités et les conversions à la volé (mais parfois, pas celle souhaité). 
+          totalPrice.textContent = priceTotal; 
           console.log(product.price)
 
           //
